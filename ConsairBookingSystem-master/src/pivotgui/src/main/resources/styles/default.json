@@ -1,0 +1,57 @@
+{
+  // This is used both for headers and for button containers
+  headerBox: {
+    verticalAlignment:"center",
+    horizontalAlignment:"center"
+  },
+
+  headerLabel: {
+    font: {
+      bold:true,
+      size:24
+    },
+    color:'#eeeeee'
+  },
+
+  subHeaderLabel: {
+    font: {
+      bold:true,
+      size:18
+    },
+    color:"#097ac7"
+  },
+
+  // Used both for TableView's and ListView's
+  view: {
+    backgroundColor:"gray",
+    alternateRowBackgroundColor:"#eeeeee",  // TableView specific
+    alternateItemBackgroundColor:"#eeeeee", // ListView specific
+    color:"#c73a3a"
+  },
+
+  form: {
+    separatorHeadingColor:"#097ac7"
+  },
+
+  activityIndicator: {
+    backgroundColor:"#4f4f4f"
+  },
+
+  boxPane: {
+    verticalAlignment:"center",
+    horizontalAlignment:"center",
+    backgroundColor:'#4f4f4f'
+  },
+
+  tablePane: {
+    padding:10,
+    backgroundColor:"#3c3c3c",
+    horizontalSpacing:10,
+    verticalSpacing:5,
+    showVerticalGridLines:true
+  },
+
+  scrollPane: {
+    backgroundColor:"gray"
+  }
+}

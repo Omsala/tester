@@ -1,0 +1,38 @@
+<controllers:ConnectAndLoginController xmlns:bxml="http://pivot.apache.org/bxml"
+                                       xmlns:controllers="ospp.pivotgui.controllers"
+                                       title="Login"
+                                       maximized="true"
+                                       xmlns="org.apache.pivot.wtk">
+
+    <!-- Default style definition -->
+    <bxml:define>
+        <bxml:include bxml:id="defaultStyle" src="/styles/default.json"/>
+    </bxml:define>
+
+    <!-- Structure -->
+    <BoxPane styles="$defaultStyle.boxPane" orientation="vertical">
+
+        <!-- HEADER -->
+        <Label text="ConsAir booking system" styles="$defaultStyle.headerLabel"/>
+
+        <!-- FORM -->
+        <Form styles="$defaultStyle.form">
+
+            <Form.Section heading="Server information">
+                <TextInput bxml:id="hostURL" prompt="URL"/>
+                <TextInput bxml:id="port" prompt="Port" text="53535"/>
+            </Form.Section>
+
+            <Form.Section heading="User information">
+                <TextInput bxml:id="username" prompt="Username"/>
+                <TextInput bxml:id="password" prompt="Password" password="true"/>
+
+                <!-- BUTTON -->
+                <PushButton bxml:id="connect" buttonData="Connect"/>
+            </Form.Section>
+        </Form>
+
+        <!-- INDICATOR -->
+        <ActivityIndicator bxml:id="indicator" styles="$defaultStyle.activityIndicator"/>
+    </BoxPane>
+</controllers:ConnectAndLoginController>

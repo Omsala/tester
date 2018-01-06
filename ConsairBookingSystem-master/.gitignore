@@ -1,0 +1,10 @@
+*.swp
+*.beam
+*.idea/
+*.iml
+*target/
+dependency-reduced-pom.xml
+ebin/
+server-messages/
+#*
+.#*

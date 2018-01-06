@@ -1,0 +1,67 @@
+<controllers:BookController xmlns:bxml="http://pivot.apache.org/bxml" xmlns:controllers="ospp.pivotgui.controllers"
+                            xmlns:collections="org.apache.pivot.collections"
+                            title="Choose flight"
+                            maximized="true"
+                            xmlns="org.apache.pivot.wtk">
+
+    <!-- Default style definition -->
+    <bxml:define>
+        <bxml:include bxml:id="defaultStyle" src="/styles/default.json"/>
+    </bxml:define>
+
+    <!-- Structure -->
+    <TablePane bxml:id="mainTablePane" styles="$defaultStyle.tablePane">
+        <columns>
+            <TablePane.Column width="1*"/>
+        </columns>
+
+        <!-- HEADER -->
+        <TablePane.Row height="100">
+            <BoxPane styles="$defaultStyle.headerBox">
+                <Label text="Please choose a flight" styles="$defaultStyle.headerLabel"/>
+            </BoxPane>
+        </TablePane.Row>
+
+        <!-- FLIGHTS -->
+        <TablePane.Row height="1*">
+            <Border>
+                <ScrollPane horizontalScrollBarPolicy="fill"
+                            verticalScrollBarPolicy="fill_to_capacity">
+
+                    <TableView bxml:id="flightTable" selectMode="single"
+                               styles="$defaultStyle.view">
+
+                        <columns>
+                            <TableView.Column name="flightID" width="1*" headerData="Flight ID"/>
+                            <TableView.Column name="flightNumber" width="1*" headerData="Flight Number"/>
+                            <TableView.Column name="fromAirport" width="3*" headerData="From Airport"/>
+                            <TableView.Column name="toAirport" width="3*" headerData="To Airport"/>
+                            <TableView.Column name="departure" width="2*" headerData="Departure"/>
+                            <TableView.Column name="arrival" width="2*" headerData="Arrival"/>
+                        </columns>
+
+                        <!-- Test data -->
+                        <collections:HashMap flightID="1" flightNumber="12" fromAirport="Arlanda" toAirport="Heathrow"
+                                             departure="2015-05-13 12:00:00" arrival="1999-03-43 13:00:00"/>
+                        <collections:HashMap flightID="1" flightNumber="12" fromAirport="Arlanda" toAirport="Heathrow"
+                                             departure="2015-05-13 12:00:00" arrival="1999-03-43 13:00:00"/>
+                        <collections:HashMap flightID="1" flightNumber="12" fromAirport="Arlanda" toAirport="Heathrow"
+                                             departure="2015-05-13 12:00:00" arrival="1999-03-43 13:00:00"/>
+
+                    </TableView>
+
+                    <columnHeader>
+                        <TableViewHeader tableView="$flightTable"/>
+                    </columnHeader>
+                </ScrollPane>
+            </Border>
+        </TablePane.Row>
+
+        <!-- BUTTONS ETC -->
+        <TablePane.Row height="100">
+            <BoxPane styles="$defaultStyle.headerBox">
+                <PushButton bxml:id="selectButton" buttonData="Choose seat"/>
+            </BoxPane>
+        </TablePane.Row>
+    </TablePane>
+</controllers:BookController>

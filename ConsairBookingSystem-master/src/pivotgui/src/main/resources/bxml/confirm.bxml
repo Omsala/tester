@@ -1,0 +1,77 @@
+<controllers:ConfirmController xmlns:bxml="http://pivot.apache.org/bxml"
+                               xmlns:controllers="ospp.pivotgui.controllers"
+                               xmlns:collections="org.apache.pivot.collections"
+                               title="Confirm"
+                               maximized="true"
+                               xmlns="org.apache.pivot.wtk">
+
+    <!-- Default style definition -->
+    <bxml:define>
+        <bxml:include bxml:id="defaultStyle" src="/styles/default.json"/>
+    </bxml:define>
+
+    <!-- Structure -->
+    <TablePane styles="$defaultStyle.tablePane">
+
+        <columns>
+            <TablePane.Column width="1*"/>
+        </columns>
+
+        <!-- HEADER -->
+        <TablePane.Row height="100">
+            <BoxPane styles="$defaultStyle.headerBox">
+                <Label text="Please choose a seat" styles="$defaultStyle.headerLabel"/>
+            </BoxPane>
+        </TablePane.Row>
+
+        <!-- SEAT LIST -->
+        <TablePane.Row height="1*">
+            <ScrollPane horizontalScrollBarPolicy="fill"
+                        verticalScrollBarPolicy="fill_to_capacity">
+
+                <TableView bxml:id="seatTable" selectMode="single"
+                           styles="$defaultStyle.view">
+
+                    <columns>
+                        <TableView.Column name="seatID" width="1*" headerData="Seat ID"/>
+                        <TableView.Column name="class" width="2*" headerData="Class"/>
+                        <TableView.Column name="user" width="2*" headerData="User"/>
+                        <TableView.Column name="window" width="1*" headerData="Window"/>
+                        <TableView.Column name="aisle" width="1*" headerData="Aisle"/>
+                        <TableView.Column name="row" width="1*" headerData="Row"/>
+                        <TableView.Column name="column" width="1*" headerData="Column"/>
+                        <TableView.Column name="price" width="1*" headerData="Price"/>
+                        <TableView.Column name="locked" width="1*" headerData="Locked"/>
+                    </columns>
+
+                    <!-- Test data -->
+                    <collections:HashMap seatID="1" class="BUSINESS" window="true" row="1" column="1" locked="false"/>
+                    <collections:HashMap seatID="2" class="BUSINESS" window="false" row="2" column="1" locked="false"/>
+                    <collections:HashMap seatID="3" class="FIRST CLASS" window="false" row="12" column="1" locked="false"/>
+                    <collections:HashMap seatID="4" class="FIRST CLASS" window="true" row="12" column="2" locked="true"/>
+                    <collections:HashMap seatID="5" class="ECONOMICS" window="true" row="22" column="1" locked="false"/>
+                    <collections:HashMap seatID="6" class="ECONOMICS" window="false" row="22" column="2" locked="true"/>
+                    <collections:HashMap seatID="7" class="ECONOMICS" window="false" row="22" column="3" locked="false"/>
+
+                </TableView>
+
+                <columnHeader>
+                    <TableViewHeader tableView="$seatTable"/>
+                </columnHeader>
+            </ScrollPane>
+            <ScrollPane styles="$defaultStyle.scrollPane">
+                <ListView bxml:id="seatList" selectMode="single"
+                          styles="$defaultStyle.view"
+                          listData="['MissingSeats']"/>
+            </ScrollPane>
+        </TablePane.Row>
+
+        <!-- BUTTONS -->
+        <TablePane.Row height="100">
+            <BoxPane styles="$defaultStyle.headerBox">
+                <PushButton bxml:id="selectButton" buttonData="Select seat"/>
+                <PushButton bxml:id="cancelButton" buttonData="Cancel"/>
+            </BoxPane>
+        </TablePane.Row>
+    </TablePane>
+</controllers:ConfirmController>

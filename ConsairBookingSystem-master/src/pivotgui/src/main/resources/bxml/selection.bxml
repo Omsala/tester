@@ -1,0 +1,90 @@
+<controllers:SelectionController xmlns:controllers="ospp.pivotgui.controllers" xmlns:bxml="http://pivot.apache.org/bxml"
+                                 title="Select Flight"
+                                 maximized="true"
+                                 xmlns="org.apache.pivot.wtk">
+    <!-- Default style definition -->
+    <bxml:define>
+        <bxml:include bxml:id="defaultStyle" src="/styles/default.json"/>
+    </bxml:define>
+
+    <!-- Structure -->
+    <TablePane styles="$defaultStyle.tablePane">
+        <columns>
+            <TablePane.Column width="1*"/>
+        </columns>
+
+        <!-- HEADER -->
+        <TablePane.Row height="100">
+            <BoxPane styles="$defaultStyle.headerBox">
+                <Label bxml:id="headerLabel" text="Please select the two airports you want to travel between"
+                       styles="$defaultStyle.headerLabel"/>
+            </BoxPane>
+        </TablePane.Row>
+
+        <!-- SELECTION LISTS -->
+        <TablePane.Row height="1*">
+            <TablePane styles="$defaultStyle.tablePane">
+                <columns>
+                    <TablePane.Column width="1*"/>
+                    <TablePane.Column width="1*"/>
+                </columns>
+
+                <TablePane.Row height="1*">
+                    <TablePane styles="$defaultStyle.tablePane">
+                        <columns>
+                            <TablePane.Column width="1*"/>
+                            <TablePane.Column width="1*"/>
+                        </columns>
+
+                        <!-- HEADERS -->
+                        <TablePane.Row height="25">
+                            <Label text="From" styles="$defaultStyle.subHeaderLabel"/>
+                            <Label text="To" styles="$defaultStyle.subHeaderLabel"/>
+                        </TablePane.Row>
+
+                        <!-- SEPARATORS -->
+                        <TablePane.Row height="20">
+                            <Separator/>
+                            <Separator/>
+                        </TablePane.Row>
+
+                        <!-- SEARCH -->
+                        <TablePane.Row height="30">
+
+                            <!-- FROM -->
+                            <TextInput bxml:id="searchFrom" prompt="Search from"/>
+
+                            <!-- TO -->
+                            <TextInput bxml:id="searchTo" prompt="Search to"/>
+
+                        </TablePane.Row>
+
+                        <!-- LISTS -->
+                        <TablePane.Row height="1*">
+
+                            <ScrollPane styles="$defaultStyle.scrollPane">
+                                <ListView bxml:id="fromList" selectMode="single"
+                                          styles="$defaultStyle.view"
+                                          listData="['MissingAirports']"/>
+                            </ScrollPane>
+
+                            <ScrollPane styles="$defaultStyle.scrollPane">
+                                <ListView bxml:id="toList" selectMode="single"
+                                          styles="$defaultStyle.view"
+                                          listData="['MissingAirports']"/>
+                            </ScrollPane>
+                        </TablePane.Row>
+                    </TablePane>
+                </TablePane.Row>
+            </TablePane>
+        </TablePane.Row>
+
+        <!-- BUTTONS -->
+        <TablePane.Row height="100">
+            <BoxPane styles="$defaultStyle.headerBox">
+                <PushButton bxml:id="selectButton" buttonData="Select"/>
+                <PushButton bxml:id="reloadButton" buttonData="Reload Airports"/>
+            </BoxPane>
+        </TablePane.Row>
+    </TablePane>
+</controllers:SelectionController>
